@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Circuito Maestro — Versión 1</title>
+<meta name="description" content="Juego educativo para aprender a armar circuitos eléctricos.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div><span class="logo">⚡</span><span class="brand">Circuito Maestro</span><small>Versión 1</small></div>
+  <div class="scoreboard"><span>⭐ <b id="score">0</b></span><span>🎯 Nivel <b>1</b></span></div>
+</header>
+<main class="layout">
+  <section class="intro">
+    <p class="eyebrow">DESAFÍO 01 · EL CIRCUITO MÁS SIMPLE</p>
+    <h1>Encendé la lámpara</h1>
+    <p>Construí un circuito cerrado usando la batería, el interruptor y la lámpara. Hacé clic en una pieza para colocarla y luego uní los puntos con cables.</p>
+    <div class="goal"><span>💡</span><div><b>Objetivo</b><br>Que la corriente pueda salir de la batería y volver a ella sin interrupciones.</div></div>
+  </section>
+  <section class="game-card">
+    <div class="card-head"><div><b>Tablero de armado</b><span id="status">Elegí una pieza para comenzar</span></div><button id="reset" class="ghost">↻ Reiniciar</button></div>
+    <div id="board" class="board" aria-label="Tablero para armar el circuito">
+      <div class="hint">Colocá las piezas en los espacios punteados</div>
+      <div class="slot" data-slot="battery"><span>+</span><i>Batería</i></div>
+      <div class="slot" data-slot="switch"><span>×</span><i>Interruptor</i></div>
+      <div class="slot" data-slot="lamp"><span>✦</span><i>Lámpara</i></div>
+      <svg id="wires" viewBox="0 0 800 390" preserveAspectRatio="none"><path id="wire1" d="M 120 195 L 280 195"/><path id="wire2" d="M 360 195 L 440 195"/><path id="wire3" d="M 520 195 L 680 195"/></svg>
+      <div id="placed-battery" class="component battery hidden" data-kind="battery"><div class="terminal plus">+</div><div class="battery-body"><span>🔋</span><b>BATERÍA</b></div><div class="terminal minus">−</div></div>
+      <div id="placed-switch" class="component switch hidden" data-kind="switch"><div class="terminal left"></div><button class="switch-toggle" aria-label="Activar interruptor">╱</button><div class="terminal right"></div></div>
+      <div id="placed-lamp" class="component lamp hidden" data-kind="lamp"><div class="terminal left"></div><div class="bulb">💡</div><div class="terminal right"></div></div>
+    </div>
+    <div class="controls"><button id="test" class="primary" disabled>⚡ Probar circuito</button><button id="help" class="secondary">¿Cómo se juega?</button></div>
+  </section>
+  <aside class="parts"><h2>Piezas</h2><p>Elegí una pieza y colocala en el tablero.</p>
+    <button class="part" data-part="battery"><span class="part-icon">🔋</span><span><b>Batería</b><small>Fuente de energía</small></span><em>+</em></button>
+    <button class="part" data-part="switch"><span class="part-icon">🔘</span><span><b>Interruptor</b><small>Abre y cierra el paso</small></span><em>+</em></button>
+    <button class="part" data-part="lamp"><span class="part-icon">💡</span><span><b>Lámpara</b><small>Usa la energía</small></span><em>+</em></button>
+    <div class="tip"><b>💬 Pista</b><br>Un circuito abierto es como una calle cortada: la corriente no puede llegar al final.</div>
+  </aside>
+</main>
+<div id="modal" class="modal hidden"><div class="modal-box"><button id="close" class="close">×</button><div id="modal-content"></div></div></div>
+<script src="script.js"></script>
+</body>
+</html>
